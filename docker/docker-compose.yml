@@ -1,0 +1,37 @@
+version: "3.8"
+services: 
+    mysql:
+        image: mysql:5.7.31
+        container_name: mysql
+        # volumes:
+        #     - ../mysql:/var/lib/mysql
+        ports:
+            - '3306:3306'
+        environment: 
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: laravel
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: secret
+            TZ: 'Asia/Tokyo'
+        command: mysqld --character-set-server=utf8mb4  --collation-server=utf8mb4_unicode_ci
+
+    phpmyadmin:
+        depends_on: 
+            - mysql
+        image: phpmyadmin/phpmyadmin
+        ports: 
+            - '8888:80'
+        environment:
+            - PMA_ARBITRARY=1
+            - PMA_HOST=mysql
+            - PMA_USER=root
+            - PMA_PASSWORD=root
+        container_name: "phpmyadmin"
+        
+    app:
+        build: php-apache
+        container_name: myapp
+        ports:
+            - '80:80'
+        volumes: 
+            - ../myapp:/var/www/myapp
