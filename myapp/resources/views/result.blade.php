@@ -7,7 +7,6 @@
 </style>
 <div class="container">
     @foreach ($result as $tweet)
-    <?php print_r($tweet); ?>
     <div class="card mb-2">
         <div class="card-body">
             <div class="media">
@@ -23,7 +22,6 @@
             <div class="d-flex flex-row justify-content-end">
                 <div class="mr-5"><i class="fas fa-retweet text-secondary">{{ $tweet->retweet_count }}</i></div>
                 <div class="mr-5"><i class="far fa-heart text-secondary">{{ $tweet->favorite_count }}</i></div>
-                <div class="mr-5"><i class="far fa-comment text-secondary">{{ $tweet->user->name }}</i></div>
             </div>
         </div>
         <a href="https://twitter.com/{{ $tweet->user->screen_name }}/status/{{ $tweet->id }}" target="_blank" rel="noopener noreferrer" class="stretched-link"></a>

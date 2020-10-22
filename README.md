@@ -1,5 +1,14 @@
-# LAMP_template
+# TwitterAPI
 
-これは自分用テンプレート
+## 概要
+***
 
-Laravel6.*
+TwitterAPIを使って自分のツイートを取得(100件)
+
+各ツイートをクリックするとTwitter上のツイートに飛ぶ
+
+## 使用技術
+
+* Docker
+* Laravel
+* TwitterOAuth

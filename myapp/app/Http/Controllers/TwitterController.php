@@ -10,7 +10,7 @@ class TwitterController extends Controller
     public function index(Request $request)
     {
         // 取得件数
-        $count = 1;
+        $count = 100;
         // タイムラインから10件ツイート取得
         $result = \Twitter::get('statuses/user_timeline', array('count' => $count));
 
