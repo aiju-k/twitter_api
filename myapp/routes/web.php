@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\TwitterController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +17,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/result', 'TwitterController@index')->name('result');
